@@ -4,3 +4,5 @@ git reflog
 git tags
 
 git modify text
+
+git modify second
