@@ -1,8 +1,3 @@
-git status
-git log
-git reflog
-git tags
+add a branch
 
-git modify text
-
-git modify second
+add another barnsch 
