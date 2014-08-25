@@ -131,3 +131,17 @@ Closure---闭包
         }
 
         console.log(firstFunc());
+
+
+        // global variable here
+        var randomVar = (function() {  //外函数 － define scope chain 1
+            var localVar = 0;
+            return function() {  //内函数 － define scope chain 2
+                return localVar++;
+            };
+        }());  //调用时 - invoke scope chain - 伴随new define scope chain2
+
+        randomVar();  // 0
+        randomVar();  // 1
+        randomVar();  // 2
+        randomVar();  // 3
