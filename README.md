@@ -100,3 +100,34 @@ Closure---闭包
         temp.plus();  //显示101
         temp.minus(); //显示100
         //只能通过temp的特定API操作变量,实现了封装性和更好的安全性
+
+
+        function first() {
+            var firstVar = 'first';
+            function second () {
+                var firstVar = 'second';
+                return firstVar;
+            }
+            return second();
+        }
+
+        console.log(first());
+
+        var func = (function(){
+            var a = 20;
+            function func2() {
+                return a;
+            }
+            return func2;
+        })();
+
+        console.log(func());
+
+        function firstFunc() {
+            var firstVar = 'first';
+            return (function second () {
+                return firstVar;
+            }());
+        }
+
+        console.log(firstFunc());
