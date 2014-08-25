@@ -77,3 +77,26 @@ Closure---闭包
 
 闭包是JavaScript的高级特性，利用它可以产生很多巧妙的效果。它的问题在于，一旦有变量引用这个中间函数，这个中间函数将不会释放，
 同时也会使原始的作用域不会得到释放，作用域中产生的内存占用也不会得到释放。除非不再引用，才会逐步释放。
+
+
+####参考：http://www.tuicool.com/articles/nIZvmaY
+
+        function f() {
+          var localVariable = 100; //局部变量
+          function innerPlus() {
+            localVariable += 1;
+            alert(localVariable);
+          }
+          function innerMinus() {
+            localVariable -= 1;
+            alert(localVariable);
+          }
+          return {
+            plus: innerPlus,
+            minus:innerMinus
+          }; //这次返回的不再是一个单独的函数,而是一个对象,对象的属性是两个内部函数
+        }
+        var temp = f();
+        temp.plus();  //显示101
+        temp.minus(); //显示100
+        //只能通过temp的特定API操作变量,实现了封装性和更好的安全性
